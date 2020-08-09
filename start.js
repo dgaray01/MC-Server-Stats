@@ -1,7 +1,5 @@
 /*
 
-
-
 ███╗░░░███╗██╗███╗░░██╗███████╗░█████╗░██████╗░░█████╗░███████╗████████╗  ░██████╗██╗░░░██╗
 ████╗░████║██║████╗░██║██╔════╝██╔══██╗██╔══██╗██╔══██╗██╔════╝╚══██╔══╝  ██╔════╝██║░░░██║
 ██╔████╔██║██║██╔██╗██║█████╗░░██║░░╚═╝██████╔╝███████║█████╗░░░░░██║░░░  ╚█████╗░╚██╗░██╔╝
@@ -15,8 +13,6 @@
 ░╚═══██╗░░░██║░░░██╔══██║░░░██║░░░░╚═══██╗
 ██████╔╝░░░██║░░░██║░░██║░░░██║░░░██████╔╝
 ╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝░░░╚═╝░░░╚═════╝░
-
-
 */
 const express = require("express")
 const ejs = require("ejs")
@@ -35,12 +31,7 @@ app.set('view engine', 'ejs');
 app.get("/", function(req, res) {
     res.render("index")
 console.log(`User connected or reloaded website in port ${PORT}`)
-
-
-
   })
-
-
   app.post('/submit-form', (req, res) => {
     const host = req.body.host
 
@@ -56,39 +47,22 @@ console.log(`User connected or reloaded website in port ${PORT}`)
    <strong>404: Server not found or it's offline, please make sure this server exists </strong>
  <p> We are redirecting you to the home page</p>
  <meta http-equiv="refresh" content="4; URL=/" />
-
-
-
-   
-   
    `)
 });
   })
-
   app.get("/server/:hostname", function(req,res) {
 let hostname = req.params.hostname
-
-
 Gamedig.query({
     type: 'minecraft',
     host: hostname
 }).then((state) => {
-  
-
     status(hostname, 25565, response => {
-  
-    
-
-
-
     res.render('server', {
         users: `${response.players.now} / ${state.maxplayers}`,
         ping: ping,
         name:  state.name,
         requeriment: response.server.name,
         hostname: hostname
-
-
     });
     });
 }).catch((error) => {
@@ -97,20 +71,10 @@ Gamedig.query({
     <strong>404: Server not found or it's offline, please make sure this server exists </strong>
   <p> We are redirecting you to the home page</p>
   <meta http-equiv="refresh" content="4; URL=/" />
- 
- 
- 
-    
-    
     `)
  });
-
-
-
   });
   
   app.listen(PORT, function() {
     console.log(`All this website is in port: ${PORT}`)
   })
-
-  
