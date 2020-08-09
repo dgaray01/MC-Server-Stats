@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MC Server stats</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <link rel="icon" type="image/png" href="https://i.imgur.com/82SWY5g.png">
+  </head>
+  <body>
+
+
+<div class="container">
+
+
+  
+<div style="clear: left;">
+  <p style="float: left;"><img src="https://i.imgur.com/82SWY5g.png" height="150" width="150" border="0px"></p>
+      <p><h1 class="title is-1">MC Server Status</h1>
+        <h1 class="subtitle is-3">Get stats of a Minecraft server</h1>
+      
+      </p>
+      
+    </div>
+    <form method="POST" action="/submit-form">
+    <div class="field has-addons">
+      <div class="control">
+        <input class="input" type="text" name="host" placeholder="Example: hypixel.net">
+      </div>
+      <button style ="background: transparent; border: transparent"> 
+             <div class="control" type="submit">
+        <a class="button is-info" >
+          Get info
+        </a>
+      </div>
+    </button>
+
+    </div>
+  </form>
+
+</div>
+
+  </body>
+</html>
